@@ -4,79 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Of Daksh</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-   <Div>
-    <div>
-        <div>
-            <p>Daksh Arya</p>
-        </div>
-        <Div>
-           <p>About Me</p> 
-        </Div>
-        <Div>
-            <p>Project</p>
+   <div>
+     <nav>   
+        <ul class ="main-nav">
+            <li  ><a  href=" "> Daksh Arya </a></li>
+            <div class="nav-right">
+            <li ><a href="#about"> About Me</a></li>
+            <li ><a href="#projects" > Project</a></li>
+            <li ><a href="#skills" >Skills</a></li>
+            <li ><a href="#contact" >Contact Me</a></li>
+            </div>
+        </ul>
+    </nav>
+    
+   <section id="about">
+  <div class="about-container">
+    <h2>About Me</h2>
+    <p>
+      Hi, I'm <strong>Daksh Arya</strong> — a passionate web developer with a keen interest in creating dynamic, user-friendly, and responsive web applications. I enjoy transforming complex problems into elegant digital solutions.
+    </p>
+    <p>
+      With experience in technologies like <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, <strong>React</strong>, and <strong>Node.js</strong>, I build projects that are not only functional but also visually appealing. Whether it's frontend design or backend logic, I love every part of the web development process.
+    </p>
+    <p>
+      I'm constantly learning and improving — currently exploring <strong>full-stack development</strong>, <strong>performance optimization</strong>, and <strong>UI/UX design</strong>. When I'm not coding, you can find me exploring new tech trends, sketching interfaces, or sharing knowledge with fellow developers.
+    </p>
+  </div>
+</section>
 
-        </Div>
-        <Div>
-            <p>
-                Skills
-            </p>
-        </Div>
-        <div>
-            <p>
-                Contact Me
-            </p>
-        </div>
-    </div>
-    <div>
-        <div>
-            <h2>
-                About Me
-            </h2>
-        </div>
-        <div>
-            <p>
-                hi bas 
-            </p>
-        </div>
+    
+   <section id="projects">
+  <div class="projects-container">
+    <h2>Projects</h2>
 
+    <div class="project-card">
+      <h3>🛵 Foodie Fleet</h3>
+      <p>
+        A food delivery web app using React.js and Swiggy API. Features real-time restaurant listings, order tracking, and lazy loading to reduce page load time by 20%.
+      </p>
+      <a href="https://github.com/daksharya1921/Foodie-Fleet" target="_blank">View Code</a>
     </div>
-    <div>
-        <div>
-            <h2> Projects</h2>
-        </div>
-        <div>
-            <ul>
-                <ol>
-                    <li>Hello</li>
-                </ol>
-            </ul>
-        </div>
-    </div>
-    <div>
-        <div>
-            <h2>
-                Skills
-            </h2>
-        </div>
-        <div>
-            <p> Daksh</p>
-        </div>
 
+    <div class="project-card">
+      <h3>🦷 Dental Center Dashboard</h3>
+      <p>
+        A role-based React admin panel for managing patients and appointments at ENTNT Dental Center. Simulates authentication, appointment booking, and localStorage data handling.
+      </p>
+      <a href="https://dental-center-dashboard-six.vercel.app" target="_blank">Live Demo</a>
     </div>
-    <div>
-        <div>
-            <h2>
-                conatct Us
-            </h2>
-        </div>
-        <div>
-            <p>
-               Hello
-            </p>
-        </div>
+
+    <div class="project-card">
+      <h3>📸 Image Compression App</h3>
+      <p>
+        A browser-based image compressor built using JavaScript and Web APIs. Compresses JPEG/PNG images with preview and size comparison before download.
+      </p>
+      <a href="#">Coming Soon</a>
     </div>
+
+  </div>
+</section>
+
+  <section id="skills">
+  <div class="skills-container">
+    <h2>Skills</h2>
+    <p>Here are some of the technologies and tools I work with:</p>
+
+    <div class="skills-grid">
+      <div class="skill">HTML5</div>
+      <div class="skill">CSS3</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">React.js</div>
+      <div class="skill">Node.js</div>
+      <div class="skill">Express.js</div>
+      <div class="skill">MongoDB</div>
+      <div class="skill">Git & GitHub</div>
+      <div class="skill">VS Code</div>
+      <div class="skill">Figma</div>
+    </div>
+  </div>
+</section>
+
+
+    
+    <section id="contact">
+  <div class="contact-container">
+    <h2>Contact Me</h2>
+    <p>Have a question, project idea, or just want to say hi? Feel free to reach out!</p>
+
+    <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
    </Div> 
 </body>
 </html>
