@@ -218,3 +218,29 @@
 .contact-form button:hover {
   background-color: #1e3a4c;
 }
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-footer {
+  margin-top: auto;
+  background-color: #0e2431;
+  color: white;
+  text-align: center;
+  padding: 1em 0;
+  font-size: 1em;
+}
+
+.page-footer a {
+  color: #90caf9;
+  text-decoration: none;
+  margin: 0 0.5em;
+  transition: color 0.3s;
+}
+
+.page-footer a:hover {
+  color: #ffffff;
+}
