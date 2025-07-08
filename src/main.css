@@ -53,21 +53,35 @@
 }
 
 .about-container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
-#about h2 {
-  font-size: 2.5em;
-  margin-bottom: 0.5em;
-  color: #0e2431;
+.about-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2em;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-#about p {
-  font-size: 1.1em;
-  line-height: 1.8;
-  margin-bottom: 1.5em;
+.about-text {
+  flex: 1 1 500px;
+  text-align: left;
 }
+
+.about-image {
+  flex: 1 1 250px;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
 #projects {
   padding: 4em 2em;
   background-color: #ffffff;
