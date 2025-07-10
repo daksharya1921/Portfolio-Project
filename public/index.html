@@ -4,137 +4,196 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Of Daksh</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loader"></div>
-    </div>
-
     <!-- Navigation -->
-    <nav>
-        <ul class="main-nav" id="navbar">
-            <li><a href="#" class="logo">Daksh Arya</a></li>
-            <div class="nav-right">
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact Me</a></li>
-            </div>
+    <nav class="main-nav">
+        <a href="#" class="logo">Daksh Arya</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1 class="floating">Hi, I'm <span class="text-gradient">Daksh Arya</span></h1>
-            <p>Passionate Web Developer & UI/UX Enthusiast</p>
-            <a href="#about" class="cta-button">Discover My Work</a>
+            <div class="hero-badge">👋 Welcome to my portfolio</div>
+            <h1>Hi, I'm <span class="name-highlight">Daksh Arya</span></h1>
+            <p>Passionate Web Developer & UI/UX Enthusiast crafting digital experiences that matter</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn-primary">View My Work</a>
+                <a href="#contact" class="btn-secondary">Get In Touch</a>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about">
-        <div class="about-container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <div class="about-text" id="aboutText">
-                    <p>
-                        Hi, I'm <strong>Daksh Arya</strong> — a passionate web developer with a keen interest in creating dynamic, user-friendly, and responsive web applications. I enjoy transforming complex problems into elegant digital solutions.
-                    </p>
-                    <p>
-                        With experience in technologies like <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, <strong>React</strong>, and <strong>Node.js</strong>, I build projects that are not only functional but also visually appealing. Whether it's frontend design or backend logic, I love every part of the web development process.
-                    </p>
-                    <p>
-                        I'm constantly learning and improving — currently exploring <strong>full-stack development</strong>, <strong>performance optimization</strong>, and <strong>UI/UX design</strong>. When I'm not coding, you can find me exploring new tech trends, sketching interfaces, or sharing knowledge with fellow developers.
-                    </p>
+    <section class="section" id="about">
+        <div class="section-header">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Get to know me better and my journey in web development</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    Hi, I'm <strong>Daksh Arya</strong> — a passionate web developer with a keen interest in creating dynamic, user-friendly, and responsive web applications. I enjoy transforming complex problems into elegant digital solutions.
+                </p>
+                <p>
+                    With experience in technologies like <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, <strong>React</strong>, and <strong>Node.js</strong>, I build projects that are not only functional but also visually appealing.
+                </p>
+                <p>
+                    I'm constantly learning and improving — currently exploring <strong>full-stack development</strong>, <strong>performance optimization</strong>, and <strong>UI/UX design</strong>.
+                </p>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">2+</span>
+                        <span class="stat-label">Years</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Commits</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Learning</span>
+                    </div>
                 </div>
-                <div class="about-image" id="aboutImage">
-                    <img src="WhatsApp Image 2024-10-30 at 15.51.26_0776c81a.jpg" alt="Daksh Arya Profile Picture">
-                </div>
+            </div>
+            <div class="about-image">
+                <img src="WhatsApp Image 2024-10-30 at 15.51.26_0776c81a.jpg" alt="Daksh Arya Profile Picture">
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects">
-        <div class="projects-container">
-            <h2>Projects</h2>
-            <div class="projects-grid" id="projectsGrid">
-                <div class="project-card">
-                    <h3>🛵 Foodie Fleet</h3>
-                    <p>
-                        A food delivery web app using React.js and Swiggy API. Features real-time restaurant listings, order tracking, and lazy loading to reduce page load time by 20%.
-                    </p>
-                    <a href="https://github.com/daksharya1921/Foodie-Fleet" target="_blank" class="project-link">View Code</a>
-                </div>
+    <section class="section" id="projects">
+        <div class="section-header">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Here are some of my recent projects that showcase my skills</p>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <span class="project-emoji">🛵</span>
+                <h3 class="project-title">Foodie Fleet</h3>
+                <p class="project-description">
+                    A food delivery web app using React.js and Swiggy API. Features real-time restaurant listings, order tracking, and lazy loading to reduce page load time by 20%.
+                </p>
+                <a href="https://github.com/daksharya1921/Foodie-Fleet" target="_blank" class="project-link">
+                    View Code →
+                </a>
+            </div>
 
-                <div class="project-card">
-                    <h3>🦷 Dental Center Dashboard</h3>
-                    <p>
-                        A role-based React admin panel for managing patients and appointments at ENTNT Dental Center. Simulates authentication, appointment booking, and localStorage data handling.
-                    </p>
-                    <a href="https://dental-center-dashboard-six.vercel.app" target="_blank" class="project-link">Live Demo</a>
-                </div>
+            <div class="project-card">
+                <span class="project-emoji">🦷</span>
+                <h3 class="project-title">Dental Center Dashboard</h3>
+                <p class="project-description">
+                    A role-based React admin panel for managing patients and appointments at ENTNT Dental Center. Simulates authentication, appointment booking, and localStorage data handling.
+                </p>
+                <a href="https://dental-center-dashboard-six.vercel.app" target="_blank" class="project-link">
+                    Live Demo →
+                </a>
+            </div>
 
-                <div class="project-card">
-                    <h3>📸 Image Compression App</h3>
-                    <p>
-                        A browser-based image compressor built using JavaScript and Web APIs. Compresses JPEG/PNG images with preview and size comparison before download.
-                    </p>
-                    <a href="#" class="project-link">Coming Soon</a>
-                </div>
+            <div class="project-card">
+                <span class="project-emoji">📸</span>
+                <h3 class="project-title">Image Compression App</h3>
+                <p class="project-description">
+                    A browser-based image compressor built using JavaScript and Web APIs. Compresses JPEG/PNG images with preview and size comparison before download.
+                </p>
+                <a href="#" class="project-link">
+                    Coming Soon →
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills">
-        <div class="skills-container">
-            <h2>Skills</h2>
-            <p>Here are some of the technologies and tools I work with:</p>
-            <div class="skills-grid" id="skillsGrid">
-                <div class="skill"><span>HTML5</span></div>
-                <div class="skill"><span>CSS3</span></div>
-                <div class="skill"><span>JavaScript</span></div>
-                <div class="skill"><span>React.js</span></div>
-                <div class="skill"><span>Node.js</span></div>
-                <div class="skill"><span>Express.js</span></div>
-                <div class="skill"><span>MySQL</span></div>
-                <div class="skill"><span>MongoDB</span></div>
-                <div class="skill"><span>Git & GitHub</span></div>
-                <div class="skill"><span>VS Code</span></div>
-                <div class="skill"><span>Figma</span></div>
+    <section class="section" id="skills">
+        <div class="section-header">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <p class="section-subtitle">Technologies and tools I work with to bring ideas to life</p>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <div class="skill-name">HTML5</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">CSS3</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">JavaScript</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">React.js</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">Node.js</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">Express.js</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">MySQL</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">MongoDB</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">Git & GitHub</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">VS Code</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">Figma</div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
-        <div class="contact-container">
-            <h2>Contact Me</h2>
-            <p>Have a question, project idea, or just want to say hi? Feel free to reach out!</p>
-
-            <form class="contact-form" id="contactForm">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
+    <section class="section" id="contact">
+        <div class="section-header">
+            <h2 class="section-title">Let's Work Together</h2>
+            <p class="section-subtitle">Have a project in mind? Let's discuss how we can bring it to life</p>
         </div>
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Send Message</button>
+        </form>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <a href="mailto:arya.daksh.offical@gmail.com" target="_blank">📧 arya.daksh.offical@gmail.com</a>
-        |
-        <a href="https://github.com/daksharya1921" target="_blank">💻 GitHub</a>
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="mailto:arya.daksh.offical@gmail.com">📧 Email</a>
+            <a href="https://github.com/daksharya1921" target="_blank">💻 GitHub</a>
+            <a href="#" target="_blank">💼 LinkedIn</a>
+        </div>
+        <p class="footer-text">© 2024 Daksh Arya. Made with ❤️ and lots of coffee.</p>
     </footer>
 
     <!-- Scroll to Top Button -->
     <button class="scroll-to-top" id="scrollToTop">↑</button>
 
-    <script src="/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
