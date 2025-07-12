@@ -3,39 +3,46 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeToggle = document.querySelector('.theme-toggle');
     const themeToggleBtn = document.querySelector('.theme-toggle-btn');
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    const currentTheme = localStorage.getItem('theme');
-
+    const currentTheme = localStorage.getItem('theme') || (prefersDarkScheme.matches ? 'dark' : 'light');
+    
     // Set initial theme
-    if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-    }
-
-    // Toggle theme
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    
+    // Toggle theme function
     function toggleTheme() {
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
-        localStorage.setItem('theme', isDark ? 'light' : 'dark');
+        const newTheme = isDark ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        // Dispatch custom event for analytics
+        document.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme: newTheme } }));
     }
 
+    // Event listeners for theme toggle
     themeToggle?.addEventListener('click', toggleTheme);
     themeToggleBtn?.addEventListener('click', toggleTheme);
 
     // Mobile Menu Toggle
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const navLinks = document.querySelector('.nav-links');
-
-    mobileMenuToggle?.addEventListener('click', function() {
-        this.classList.toggle('active');
+    
+    function toggleMobileMenu() {
+        const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+        mobileMenuToggle.classList.toggle('active');
+        mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
         navLinks.classList.toggle('active');
         document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-    });
+    }
+
+    mobileMenuToggle?.addEventListener('click', toggleMobileMenu);
 
     // Close mobile menu when clicking on a link
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
-            mobileMenuToggle?.classList.remove('active');
-            navLinks?.classList.remove('active');
-            document.body.style.overflow = '';
+            if (navLinks.classList.contains('active')) {
+                toggleMobileMenu();
+            }
         });
     });
 
@@ -43,12 +50,24 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
+            
             if (target) {
+                // Close mobile menu if open
+                if (navLinks.classList.contains('active')) {
+                    toggleMobileMenu();
+                }
+                
                 target.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
+                
+                // Update URL without page reload
+                if (targetId !== '#') {
+                    history.pushState(null, null, targetId);
+                }
             }
         });
     });
@@ -56,14 +75,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Scroll to top functionality
     const scrollToTopBtn = document.getElementById('scrollToTop');
     
-    window.addEventListener('scroll', () => {
+    function handleScroll() {
         if (window.pageYOffset > 300) {
             scrollToTopBtn.classList.add('show');
         } else {
             scrollToTopBtn.classList.remove('show');
         }
-    });
-
+    }
+    
+    window.addEventListener('scroll', handleScroll);
+    
     scrollToTopBtn.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
@@ -71,10 +92,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Animate stats counter
+    // Animate stats counter with Intersection Observer
     const statNumbers = document.querySelectorAll('.stat-number[data-count]');
+    let statsAnimated = false;
     
     function animateStats() {
+        if (statsAnimated) return;
+        statsAnimated = true;
+        
         statNumbers.forEach(stat => {
             const target = parseInt(stat.getAttribute('data-count'));
             const duration = 2000;
@@ -105,20 +130,22 @@ document.addEventListener('DOMContentLoaded', function() {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate');
                 
-                // Animate stats when about section is visible
+                // Animate specific elements when they come into view
                 if (entry.target.id === 'about') {
                     animateStats();
                 }
                 
-                // Animate skill bars when skills section is visible
                 if (entry.target.id === 'skills') {
                     document.querySelectorAll('.skill-progress').forEach(bar => {
                         const level = bar.parentElement.parentElement.getAttribute('data-level');
                         bar.style.width = `${level}%`;
                     });
                     
-                    // Initialize skills chart
-                    initSkillsChart();
+                    // Initialize skills chart only once
+                    if (!window.skillsChartInitialized) {
+                        initSkillsChart();
+                        window.skillsChartInitialized = true;
+                    }
                 }
             }
         });
@@ -131,8 +158,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize skills chart
     function initSkillsChart() {
-        const ctx = document.getElementById('skillsChart').getContext('2d');
-        const skillsChart = new Chart(ctx, {
+        const ctx = document.getElementById('skillsChart');
+        if (!ctx) return;
+        
+        const skillsChart = new Chart(ctx.getContext('2d'), {
             type: 'radar',
             data: {
                 labels: ['HTML/CSS', 'JavaScript', 'React', 'Node.js', 'UI/UX', 'Git'],
@@ -147,6 +176,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 }]
             },
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 scales: {
                     r: {
                         angleLines: {
@@ -166,6 +197,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 plugins: {
                     legend: {
                         display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.label}: ${context.raw}%`;
+                            }
+                        }
                     }
                 },
                 elements: {
@@ -177,13 +215,55 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Form validation
+    // Form validation and submission
     const contactForm = document.getElementById('contactForm');
     
     if (contactForm) {
+        // Form validation
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const btn = this.querySelector('button[type="submit"]');
+            if (validateForm()) {
+                submitForm();
+            }
+        });
+        
+        // Input validation on blur
+        contactForm.querySelectorAll('input, textarea').forEach(input => {
+            input.addEventListener('blur', function() {
+                validateField(this);
+            });
+        });
+        
+        // Validate individual field
+        function validateField(field) {
+            const error = field.nextElementSibling;
+            
+            if (field.required && !field.value.trim()) {
+                error.textContent = 'This field is required';
+                return false;
+            } else if (field.type === 'email' && !field.validity.valid) {
+                error.textContent = 'Please enter a valid email';
+                return false;
+            } else {
+                error.textContent = '';
+                return true;
+            }
+        }
+        
+        // Validate entire form
+        function validateForm() {
+            let isValid = true;
+            contactForm.querySelectorAll('input, textarea').forEach(input => {
+                if (!validateField(input)) {
+                    isValid = false;
+                }
+            });
+            return isValid;
+        }
+        
+        // Form submission
+        function submitForm() {
+            const btn = contactForm.querySelector('button[type="submit"]');
             const btnText = btn.querySelector('.btn-text');
             const btnLoader = btn.querySelector('.btn-loader');
             
@@ -192,12 +272,7 @@ document.addEventListener('DOMContentLoaded', function() {
             btnLoader.style.display = 'flex';
             btn.disabled = true;
             
-            // Reset error messages
-            document.querySelectorAll('.error-message').forEach(el => {
-                el.textContent = '';
-            });
-            
-            // Simulate form submission
+            // Simulate form submission (replace with actual fetch/axios call)
             setTimeout(() => {
                 // Hide loading state
                 btnText.style.display = 'block';
@@ -205,27 +280,42 @@ document.addEventListener('DOMContentLoaded', function() {
                 btn.disabled = false;
                 
                 // Show success message
-                alert('Thank you for your message! I will get back to you soon.');
+                showToast('Message sent successfully! I will get back to you soon.');
                 contactForm.reset();
             }, 1500);
-        });
+        }
+    }
+    
+    // Show toast notification
+    function showToast(message) {
+        const toast = document.createElement('div');
+        toast.className = 'toast-notification';
+        toast.textContent = message;
+        document.body.appendChild(toast);
         
-        // Basic form validation
-        contactForm.querySelectorAll('input, textarea').forEach(input => {
-            input.addEventListener('blur', function() {
-                const error = this.nextElementSibling;
-                
-                if (this.required && !this.value.trim()) {
-                    error.textContent = 'This field is required';
-                } else if (this.type === 'email' && !this.validity.valid) {
-                    error.textContent = 'Please enter a valid email';
-                } else {
-                    error.textContent = '';
-                }
-            });
-        });
+        setTimeout(() => {
+            toast.classList.add('show');
+        }, 10);
+        
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => {
+                document.body.removeChild(toast);
+            }, 300);
+        }, 3000);
     }
 
     // Set current year in footer
     document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Service worker registration for PWA
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js').then(registration => {
+                console.log('ServiceWorker registration successful');
+            }).catch(err => {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+    }
 });
