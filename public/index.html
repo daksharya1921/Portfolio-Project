@@ -1,43 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
+    <!-- Primary Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional portfolio of Daksh Arya - Web Developer & UI/UX Designer">
-    <meta name="keywords" content="web developer, portfolio, react, javascript, frontend">
+    <meta name="description" content="Professional portfolio of Daksh Arya - Web Developer & UI/UX Designer showcasing projects in React, JavaScript, and modern web technologies">
+    <meta name="keywords" content="web developer, portfolio, react, javascript, frontend, fullstack, UI/UX">
     <meta name="author" content="Daksh Arya">
+    <meta name="theme-color" content="#667eea">
     
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="Daksh Arya | Web Developer Portfolio">
-    <meta property="og:description" content="Professional portfolio showcasing my web development projects and skills">
+    <meta property="og:description" content="Professional portfolio showcasing web development projects and skills in React, JavaScript, and modern web technologies">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yourportfolio.com">
-    <meta property="og:image" content="https://yourportfolio.com/images/preview.jpg">
+    <meta property="og:url" content="https://daksharya.github.io">
+    <meta property="og:image" content="https://daksharya.github.io/images/social-preview.jpg">
+    <meta property="og:image:alt" content="Daksh Arya Portfolio Preview">
+    <meta property="og:site_name" content="Daksh Arya Portfolio">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@daksharya">
+    <meta name="twitter:title" content="Daksh Arya | Web Developer Portfolio">
+    <meta name="twitter:description" content="Professional portfolio showcasing web development projects and skills">
+    <meta name="twitter:image" content="https://daksharya.github.io/images/social-preview.jpg">
     
     <title>Daksh Arya | Web Developer Portfolio</title>
     
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <!-- Favicon with modern standards -->
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
     
     <!-- Preload critical resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" crossorigin>
     <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
     
-    <!-- Fonts -->
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    
+    <!-- CSS Resources -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles.css">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://yourportfolio.com">
+    <link rel="canonical" href="https://daksharya.github.io">
 </head>
 <body>
     <!-- Skip to Content Link (Accessibility) -->
@@ -45,14 +58,14 @@
     
     <!-- Navigation -->
     <nav class="main-nav" aria-label="Main navigation">
-        <div class="nav-container">
+        <div class="nav-container container">
             <a href="#" class="logo" aria-label="Home">Daksh Arya</a>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
             </button>
-            <ul class="nav-links">
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
@@ -60,8 +73,9 @@
                 <li><a href="#contact" class="nav-link">Contact</a></li>
                 <li>
                     <button class="theme-toggle" aria-label="Toggle dark mode">
-                        <i class="fas fa-moon"></i>
-                        <i class="fas fa-sun"></i>
+                        <span class="theme-icon moon" aria-hidden="true"><i class="fas fa-moon"></i></span>
+                        <span class="theme-icon sun" aria-hidden="true"><i class="fas fa-sun"></i></span>
+                        <span class="visually-hidden">Toggle dark mode</span>
                     </button>
                 </li>
             </ul>
@@ -70,419 +84,438 @@
 
     <!-- Hero Section -->
     <main id="main-content">
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-badge">👋 Welcome to my portfolio</div>
-            <h1>Hi, I'm <span class="name-highlight">Daksh Arya</span></h1>
-            <p class="hero-subtitle">Passionate Web Developer & UI/UX Enthusiast crafting digital experiences that matter</p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary" aria-label="View my projects">
-                    <span>View My Work</span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-                <a href="#contact" class="btn btn-secondary" aria-label="Contact me">
-                    <span>Get In Touch</span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
+        <section class="hero" id="home">
+            <div class="hero-content container">
+                <div class="hero-badge" aria-hidden="true">👋 Welcome to my portfolio</div>
+                <h1>Hi, I'm <span class="name-highlight">Daksh Arya</span></h1>
+                <p class="hero-subtitle">Passionate Web Developer & UI/UX Enthusiast crafting digital experiences that matter</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary" aria-label="View my projects">
+                        <span>View My Work</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary" aria-label="Contact me">
+                        <span>Get In Touch</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="hero-social">
+                    <a href="https://github.com/daksharya1921" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/daksharya" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                    </a>
+                    <a href="mailto:arya.daksh.offical@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://twitter.com/daksharya" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                        <i class="fab fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </div>
             </div>
-            <div class="hero-social">
-                <a href="https://github.com/daksharya1921" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="mailto:arya.daksh.offical@gmail.com" aria-label="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
+            <div class="scroll-indicator" aria-hidden="true">
+                <span>Scroll down</span>
+                <div class="mouse"></div>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <span>Scroll down</span>
-            <div class="mouse"></div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section class="section" id="about" aria-labelledby="about-heading">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" id="about-heading">About Me</h2>
-                <p class="section-subtitle">Get to know me better and my journey in web development</p>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        Hi, I'm <strong>Daksh Arya</strong> — a passionate web developer with a keen interest in creating dynamic, user-friendly, and responsive web applications. I enjoy transforming complex problems into elegant digital solutions.
-                    </p>
-                    <p>
-                        With experience in technologies like <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, <strong>React</strong>, and <strong>Node.js</strong>, I build projects that are not only functional but also visually appealing.
-                    </p>
-                    <p>
-                        I'm constantly learning and improving — currently exploring <strong>full-stack development</strong>, <strong>performance optimization</strong>, and <strong>UI/UX design</strong>.
-                    </p>
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <span class="stat-number" data-count="15">0</span>
-                            <span class="stat-label">Projects</span>
+        <!-- About Section -->
+        <section class="section" id="about" aria-labelledby="about-heading">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" id="about-heading">About Me</h2>
+                    <p class="section-subtitle">Get to know me better and my journey in web development</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>
+                            Hi, I'm <strong>Daksh Arya</strong> — a passionate web developer with a keen interest in creating dynamic, user-friendly, and responsive web applications. I enjoy transforming complex problems into elegant digital solutions.
+                        </p>
+                        <p>
+                            With experience in technologies like <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, <strong>React</strong>, and <strong>Node.js</strong>, I build projects that are not only functional but also visually appealing.
+                        </p>
+                        <p>
+                            I'm constantly learning and improving — currently exploring <strong>full-stack development</strong>, <strong>performance optimization</strong>, and <strong>UI/UX design</strong>.
+                        </p>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <span class="stat-number" data-count="15">0</span>
+                                <span class="stat-label">Projects</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-count="2">0</span>
+                                <span class="stat-label">Years</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-count="50">0</span>
+                                <span class="stat-label">Commits</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">∞</span>
+                                <span class="stat-label">Learning</span>
+                            </div>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number" data-count="2">0</span>
-                            <span class="stat-label">Years</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number" data-count="50">0</span>
-                            <span class="stat-label">Commits</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">∞</span>
-                            <span class="stat-label">Learning</span>
+                    </div>
+                    <div class="about-image">
+                        <div class="image-wrapper">
+                            <img src="images/profile.jpg" alt="Daksh Arya Profile Picture" loading="lazy" width="350" height="350">
+                            <div class="image-highlight" aria-hidden="true"></div>
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
-                    <div class="image-wrapper">
-                        <img src="WhatsApp Image 2024-10-30 at 15.51.26_0776c81a.jpg" alt="Daksh Arya Profile Picture" loading="lazy" width="350" height="350">
-                        <div class="image-highlight"></div>
-                    </div>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Experience Section -->
-    <section class="section" id="experience" aria-labelledby="experience-heading">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" id="experience-heading">Experience</h2>
-                <p class="section-subtitle">My professional journey and achievements</p>
-            </div>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">2023 - Present</div>
-                    <div class="timeline-content">
-                        <h3>Frontend Developer</h3>
-                        <h4>Company Name</h4>
-                        <ul>
-                            <li>Developed responsive web applications using React.js and modern JavaScript</li>
-                            <li>Collaborated with designers to implement UI/UX best practices</li>
-                            <li>Optimized application performance reducing load times by 30%</li>
-                        </ul>
-                    </div>
+        <!-- Experience Section -->
+        <section class="section" id="experience" aria-labelledby="experience-heading">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" id="experience-heading">Experience</h2>
+                    <p class="section-subtitle">My professional journey and achievements</p>
                 </div>
                 
-                <div class="timeline-item">
-                    <div class="timeline-date">2022 - 2023</div>
-                    <div class="timeline-content">
-                        <h3>Web Developer Intern</h3>
-                        <h4>Another Company</h4>
-                        <ul>
-                            <li>Built and maintained company website using HTML, CSS, and JavaScript</li>
-                            <li>Assisted in developing internal tools to streamline workflows</li>
-                            <li>Participated in code reviews and team meetings</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="section" id="projects" aria-labelledby="projects-heading">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" id="projects-heading">Featured Projects</h2>
-                <p class="section-subtitle">Here are some of my recent projects that showcase my skills</p>
-            </div>
-            <div class="projects-grid">
-                <article class="project-card">
-                    <div class="project-header">
-                        <span class="project-emoji">🛵</span>
-                        <div class="project-links">
-                            <a href="https://github.com/daksharya1921/Foodie-Fleet" target="_blank" rel="noopener noreferrer" aria-label="View Foodie Fleet code">
-                                <i class="fas fa-code"></i>
-                            </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Foodie Fleet live demo">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2023 - Present</div>
+                        <div class="timeline-content">
+                            <h3>Frontend Developer</h3>
+                            <h4>Tech Solutions Inc.</h4>
+                            <ul>
+                                <li>Developed responsive web applications using React.js and modern JavaScript</li>
+                                <li>Collaborated with designers to implement UI/UX best practices</li>
+                                <li>Optimized application performance reducing load times by 30%</li>
+                                <li>Implemented CI/CD pipelines reducing deployment time by 40%</li>
+                            </ul>
                         </div>
                     </div>
-                    <h3 class="project-title">Foodie Fleet</h3>
-                    <p class="project-description">
-                        A food delivery web app using React.js and Swiggy API. Features real-time restaurant listings, order tracking, and lazy loading to reduce page load time by 20%.
-                    </p>
-                    <div class="project-tags">
-                        <span>React</span>
-                        <span>API Integration</span>
-                        <span>Performance</span>
-                    </div>
-                </article>
-
-                <article class="project-card">
-                    <div class="project-header">
-                        <span class="project-emoji">🦷</span>
-                        <div class="project-links">
-                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="View Dental Center Dashboard code">
-                                <i class="fas fa-code"></i>
-                            </a>
-                            <a href="https://dental-center-dashboard-six.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="Dental Center Dashboard live demo">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <h3 class="project-title">Dental Center Dashboard</h3>
-                    <p class="project-description">
-                        A role-based React admin panel for managing patients and appointments at ENTNT Dental Center. Simulates authentication, appointment booking, and localStorage data handling.
-                    </p>
-                    <div class="project-tags">
-                        <span>React</span>
-                        <span>Admin Panel</span>
-                        <span>Authentication</span>
-                    </div>
-                </article>
-
-                <article class="project-card">
-                    <div class="project-header">
-                        <span class="project-emoji">📸</span>
-                        <div class="project-links">
-                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="View Image Compression App code">
-                                <i class="fas fa-code"></i>
-                            </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Coming soon" class="disabled">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <h3 class="project-title">Image Compression App</h3>
-                    <p class="project-description">
-                        A browser-based image compressor built using JavaScript and Web APIs. Compresses JPEG/PNG images with preview and size comparison before download.
-                    </p>
-                    <div class="project-tags">
-                        <span>JavaScript</span>
-                        <span>Web APIs</span>
-                        <span>Performance</span>
-                    </div>
-                </article>
-            </div>
-            <div class="section-footer">
-                <a href="https://github.com/daksharya1921?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-                    View All Projects <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="section" id="skills" aria-labelledby="skills-heading">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" id="skills-heading">Skills & Technologies</h2>
-                <p class="section-subtitle">Technologies and tools I work with to bring ideas to life</p>
-            </div>
-            <div class="skills-container">
-                <div class="skills-chart">
-                    <canvas id="skillsChart" width="400" height="400" aria-label="Skills radar chart" role="img"></canvas>
-                </div>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3 class="category-title">Frontend</h3>
-                        <div class="skills-list">
-                            <div class="skill-item" data-level="90">
-                                <span>HTML5</span>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item" data-level="85">
-                                <span>CSS3/Sass</span>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item" data-level="80">
-                                <span>JavaScript</span>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item" data-level="75">
-                                <span>React</span>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3 class="category-title">Backend</h3>
-                        <div class="skills-list">
-                            <div class="skill-item" data-level="70">
-                                <span>Node.js</span>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item" data-level="65">
-                                <span>Express</span>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item" data-level="60">
-                                <span>MongoDB</span>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item" data-level="55">
-                                <span>MySQL</span>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3 class="category-title">Tools</h3>
-                        <div class="skills-list">
-                            <div class="skill-item" data-level="85">
-                                <span>Git</span>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item" data-level="80">
-                                <span>VS Code</span>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item" data-level="70">
-                                <span>Figma</span>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item" data-level="65">
-                                <span>Webpack</span>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                </div>
-                            </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">2022 - 2023</div>
+                        <div class="timeline-content">
+                            <h3>Web Developer Intern</h3>
+                            <h4>Digital Creations Agency</h4>
+                            <ul>
+                                <li>Built and maintained company website using HTML, CSS, and JavaScript</li>
+                                <li>Assisted in developing internal tools to streamline workflows</li>
+                                <li>Participated in code reviews and team meetings</li>
+                                <li>Contributed to migration from jQuery to React</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Testimonials Section -->
-    <section class="section" id="testimonials" aria-labelledby="testimonials-heading">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" id="testimonials-heading">Testimonials</h2>
-                <p class="section-subtitle">What people say about my work</p>
+        <!-- Projects Section -->
+        <section class="section" id="projects" aria-labelledby="projects-heading">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" id="projects-heading">Featured Projects</h2>
+                    <p class="section-subtitle">Here are some of my recent projects that showcase my skills</p>
+                </div>
+                <div class="projects-grid">
+                    <article class="project-card">
+                        <div class="project-header">
+                            <span class="project-emoji" aria-hidden="true">🛵</span>
+                            <div class="project-links">
+                                <a href="https://github.com/daksharya1921/Foodie-Fleet" target="_blank" rel="noopener noreferrer" aria-label="View Foodie Fleet code">
+                                    <i class="fas fa-code" aria-hidden="true"></i>
+                                </a>
+                                <a href="https://foodie-fleet-demo.netlify.app" target="_blank" rel="noopener noreferrer" aria-label="Foodie Fleet live demo">
+                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Foodie Fleet</h3>
+                        <p class="project-description">
+                            A food delivery web app using React.js and Swiggy API. Features real-time restaurant listings, order tracking, and lazy loading to reduce page load time by 20%.
+                        </p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>API Integration</span>
+                            <span>Performance</span>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-header">
+                            <span class="project-emoji" aria-hidden="true">🦷</span>
+                            <div class="project-links">
+                                <a href="https://github.com/daksharya1921/dental-center-dashboard" target="_blank" rel="noopener noreferrer" aria-label="View Dental Center Dashboard code">
+                                    <i class="fas fa-code" aria-hidden="true"></i>
+                                </a>
+                                <a href="https://dental-center-dashboard-six.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="Dental Center Dashboard live demo">
+                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Dental Center Dashboard</h3>
+                        <p class="project-description">
+                            A role-based React admin panel for managing patients and appointments at ENTNT Dental Center. Simulates authentication, appointment booking, and localStorage data handling.
+                        </p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Admin Panel</span>
+                            <span>Authentication</span>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-header">
+                            <span class="project-emoji" aria-hidden="true">📸</span>
+                            <div class="project-links">
+                                <a href="https://github.com/daksharya1921/image-compressor" target="_blank" rel="noopener noreferrer" aria-label="View Image Compression App code">
+                                    <i class="fas fa-code" aria-hidden="true"></i>
+                                </a>
+                                <a href="https://image-compressor-demo.netlify.app" target="_blank" rel="noopener noreferrer" aria-label="Image Compression App live demo">
+                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Image Compression App</h3>
+                        <p class="project-description">
+                            A browser-based image compressor built using JavaScript and Web APIs. Compresses JPEG/PNG images with preview and size comparison before download.
+                        </p>
+                        <div class="project-tech">
+                            <span>JavaScript</span>
+                            <span>Web APIs</span>
+                            <span>Performance</span>
+                        </div>
+                    </article>
+                </div>
+                <div class="section-footer">
+                    <a href="https://github.com/daksharya1921?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                        View All Projects <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
             </div>
-            
-            <div class="testimonials-slider">
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"Daksh delivered exceptional work on our project. His attention to detail and problem-solving skills were impressive. He consistently met deadlines and communicated effectively throughout the process."</p>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section" id="skills" aria-labelledby="skills-heading">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" id="skills-heading">Skills & Technologies</h2>
+                    <p class="section-subtitle">Technologies and tools I work with to bring ideas to life</p>
+                </div>
+                <div class="skills-container">
+                    <div class="skills-chart">
+                        <canvas id="skillsChart" width="400" height="400" aria-label="Skills radar chart" role="img"></canvas>
                     </div>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <img src="client1.jpg" alt="Client Name" loading="lazy" width="60" height="60">
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3 class="category-title">Frontend</h3>
+                            <div class="skills-list">
+                                <div class="skill-item" data-level="90">
+                                    <span>HTML5</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item" data-level="85">
+                                    <span>CSS3/Sass</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item" data-level="80">
+                                    <span>JavaScript</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item" data-level="75">
+                                    <span>React</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="author-info">
-                            <h4>Client Name</h4>
-                            <p>CEO, Company Name</p>
+                        <div class="skill-category">
+                            <h3 class="category-title">Backend</h3>
+                            <div class="skills-list">
+                                <div class="skill-item" data-level="70">
+                                    <span>Node.js</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item" data-level="65">
+                                    <span>Express</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item" data-level="60">
+                                    <span>MongoDB</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item" data-level="55">
+                                    <span>MySQL</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3 class="category-title">Tools</h3>
+                            <div class="skills-list">
+                                <div class="skill-item" data-level="85">
+                                    <span>Git</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item" data-level="80">
+                                    <span>VS Code</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item" data-level="70">
+                                    <span>Figma</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item" data-level="65">
+                                    <span>Webpack</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section" id="testimonials" aria-labelledby="testimonials-heading">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" id="testimonials-heading">Testimonials</h2>
+                    <p class="section-subtitle">What people say about my work</p>
                 </div>
                 
-                <!-- Additional testimonials would go here -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section" id="contact" aria-labelledby="contact-heading">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" id="contact-heading">Let's Work Together</h2>
-                <p class="section-subtitle">Have a project in mind? Let's discuss how we can bring it to life</p>
-            </div>
-            <div class="contact-container">
-                <form class="contact-form" id="contactForm" novalidate>
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" required>
-                        <span class="error-message"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
-                        <span class="error-message"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                        <span class="error-message"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                        <span class="error-message"></span>
-                    </div>
-                    <button type="submit" class="btn btn-primary">
-                        <span class="btn-text">Send Message</span>
-                        <span class="btn-loader">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </span>
-                    </button>
-                </form>
-                <div class="contact-info">
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-envelope"></i>
+                <div class="testimonials-slider">
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <blockquote>
+                                <p>"Daksh delivered exceptional work on our project. His attention to detail and problem-solving skills were impressive. He consistently met deadlines and communicated effectively throughout the process."</p>
+                            </blockquote>
                         </div>
-                        <div class="info-content">
-                            <h4>Email</h4>
-                            <a href="mailto:arya.daksh.offical@gmail.com">arya.daksh.offical@gmail.com</a>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="images/client1.jpg" alt="John Smith" loading="lazy" width="60" height="60">
+                            </div>
+                            <div class="author-info">
+                                <h4>John Smith</h4>
+                                <p>CEO, Tech Solutions Inc.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fab fa-github"></i>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <blockquote>
+                                <p>"Working with Daksh was a pleasure. He quickly understood our requirements and delivered a solution that exceeded our expectations. His React skills are top-notch!"</p>
+                            </blockquote>
                         </div>
-                        <div class="info-content">
-                            <h4>GitHub</h4>
-                            <a href="https://github.com/daksharya1921" target="_blank" rel="noopener noreferrer">github.com/daksharya1921</a>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fab fa-linkedin-in"></i>
-                        </div>
-                        <div class="info-content">
-                            <h4>LinkedIn</h4>
-                            <a href="#" target="_blank" rel="noopener noreferrer">linkedin.com/in/daksharya</a>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="images/client2.jpg" alt="Sarah Johnson" loading="lazy" width="60" height="60">
+                            </div>
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Product Manager, Digital Creations</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section" id="contact" aria-labelledby="contact-heading">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" id="contact-heading">Let's Work Together</h2>
+                    <p class="section-subtitle">Have a project in mind? Let's discuss how we can bring it to life</p>
+                </div>
+                <div class="contact-container">
+                    <form class="contact-form" id="contactForm" novalidate>
+                        <div class="form-group">
+                            <label for="name">Your Name <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" required aria-required="true">
+                            <span class="error-message" aria-live="polite"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required aria-required="true">
+                            <span class="error-message" aria-live="polite"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject <span class="required">*</span></label>
+                            <input type="text" id="subject" name="subject" required aria-required="true">
+                            <span class="error-message" aria-live="polite"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message <span class="required">*</span></label>
+                            <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+                            <span class="error-message" aria-live="polite"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loader" aria-hidden="true">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                        </button>
+                    </form>
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Email</h4>
+                                <a href="mailto:arya.daksh.offical@gmail.com">arya.daksh.offical@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fab fa-github" aria-hidden="true"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>GitHub</h4>
+                                <a href="https://github.com/daksharya1921" target="_blank" rel="noopener noreferrer">github.com/daksharya1921</a>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>LinkedIn</h4>
+                                <a href="https://linkedin.com/in/daksharya" target="_blank" rel="noopener noreferrer">linkedin.com/in/daksharya</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -492,6 +525,20 @@
                 <div class="footer-brand">
                     <a href="#" class="logo">Daksh Arya</a>
                     <p>Crafting digital experiences with code and creativity</p>
+                    <div class="footer-social">
+                        <a href="https://github.com/daksharya1921" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/daksharya" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                        </a>
+                        <a href="mailto:arya.daksh.offical@gmail.com" aria-label="Email">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://twitter.com/daksharya" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                        </a>
+                    </div>
                 </div>
                 <div class="footer-links">
                     <div class="links-group">
@@ -504,11 +551,11 @@
                         </ul>
                     </div>
                     <div class="links-group">
-                        <h4>Connect</h4>
+                        <h4>Resources</h4>
                         <ul>
-                            <li><a href="https://github.com/daksharya1921" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-                            <li><a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                            <li><a href="mailto:arya.daksh.offical@gmail.com">Email</a></li>
+                            <li><a href="https://github.com/daksharya1921?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub Repos</a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">Blog</a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">Design Portfolio</a></li>
                         </ul>
                     </div>
                 </div>
@@ -517,8 +564,9 @@
                 <p>&copy; <span id="current-year">2024</span> Daksh Arya. All rights reserved.</p>
                 <div class="theme-toggle">
                     <button class="theme-toggle-btn" aria-label="Toggle dark mode">
-                        <i class="fas fa-moon"></i>
-                        <i class="fas fa-sun"></i>
+                        <span class="theme-icon moon" aria-hidden="true"><i class="fas fa-moon"></i></span>
+                        <span class="theme-icon sun" aria-hidden="true"><i class="fas fa-sun"></i></span>
+                        <span class="visually-hidden">Toggle dark mode</span>
                     </button>
                 </div>
             </div>
@@ -527,11 +575,26 @@
 
     <!-- Scroll to Top Button -->
     <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
-        <i class="fas fa-arrow-up"></i>
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="script.js" defer></script>
+    
+    <!-- PWA Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>
