@@ -1,4 +1,4 @@
-# Daksh Arya's Portfolio Website
+i# Daksh Arya's Portfolio Website
 
 ![Portfolio Screenshot](./public/screenshot.png)
 
@@ -106,5 +106,7 @@ This project is open source and available under the [MIT License](LICENSE).
 - LinkedIn: www.linkedin.com/in/arya-daksh
 
 ---
+
+daksh
 
 ⭐ If you found this project helpful, please give it a star on GitHub!
