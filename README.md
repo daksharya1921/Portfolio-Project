@@ -107,6 +107,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-daksh
+daksh arya
 
 ⭐ If you found this project helpful, please give it a star on GitHub!
