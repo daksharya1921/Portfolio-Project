@@ -1,4 +1,4 @@
-i# Daksh Arya's Portfolio Website
+ui# Daksh Arya's Portfolio Website
 
 ![Portfolio Screenshot](./public/screenshot.png)
 
@@ -107,6 +107,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-daksh arya
+
 
 ⭐ If you found this project helpful, please give it a star on GitHub!
